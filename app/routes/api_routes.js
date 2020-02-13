@@ -9,3 +9,4 @@ module.exports = function(app, db) {
     res.send('Avnis test ping')
   })
 }
+//test
