@@ -5,7 +5,7 @@ module.exports = function(app, db ) {
 }
 
 module.exports = function(app, db) {
-  app.post('/test', (req, res) => {
+  app.post('/test2', (req, res) => {
     res.send('Avnis test ping')
   })
 }
