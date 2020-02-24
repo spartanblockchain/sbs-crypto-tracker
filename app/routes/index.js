@@ -1,4 +1,4 @@
-const apiRoutes = require('./api_routes');
+const apiRoutes = require('./coinGecko');
 
 module.exports = function(app, db) {
   apiRoutes(app, db);
