@@ -14,7 +14,7 @@ const port = 8000;
 
 app.post('/bitcoin-history', (req, res) => {
   coinGeckoAPI.getBitcoinHist(req, res);
-  res.send(200);
+  res.sendStatus(200);
 });
 
 
