@@ -17,6 +17,12 @@ app.post('/bitcoin-history', (req, res) => {
   res.sendStatus(200);
 });
 
+app.post('/coin-info', (req, res) => {
+  coinGeckoAPI.getCoinInfo(req,res);
+  res.sendStatus(200);
+});
+
+
 
 
 app.listen(port, () => {
