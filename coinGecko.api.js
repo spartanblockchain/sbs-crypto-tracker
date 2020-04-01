@@ -24,9 +24,24 @@ const coinGecko = {
       // console.log('body:', body); // Print the HTML for the Google homepage.
       console.log(body.market_data);
     });
+  }, 
+
+  getCoinInfo: (req, res) => {
+    // var coin = getCoin();
+    var coin = 'bitcoin'
+    console.log("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+coin+"&order=market_cap_desc&per_page=100&page=1&sparkline=false");
+    request("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+coin+"&order=market_cap_desc&per_page=100&page=1&sparkline=false", function (error, response, body) {
+      if(error){
+        console.error('error:', error); // Print the error if one occurred
+      }
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+
+      // console.log('body:', body); // Print the HTML for the Google homepage.
+    });
   }
 
 }
+
 
 // new functions can just be separated by commas
 function getPastWeek(){
@@ -40,5 +55,10 @@ function getPastWeek(){
   // console.log(weekDates);
   return weekDates;
 }
+
+function getCoin(){
+  return self.coin();
+}
+
 
 module.exports = coinGecko;
