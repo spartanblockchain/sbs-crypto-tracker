@@ -1,7 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const app = express();
-const bodyParser = require('body-parser');
+const express       = require("express");
+const mongoose      = require("mongoose");
+const app           = express();
+const bodyParser    = require('body-parser');
+const coinGeckoAPI  = require('./coinGecko.api')
 
 require('dotenv/config');
 
@@ -20,7 +21,6 @@ mongoose.connect(process.env.DB_CONNECTION,
 app.post('/bitcoin-history', (req, res) => {
     coinGeckoAPI.getBitcoinHist(req, res);
     res.sendStatus(200);
-    // res.send(body);
   });
 
 port = 8000;

@@ -22,9 +22,10 @@ const coinGecko = {
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
       // console.log('body:', body); // Print the HTML for the Google homepage.
-      console.log(body.market_data);
+      // console.log(body.market_data);
+      res.send(body)
     });
-  }, 
+  },
 
   getCoinInfo: (req, res) => {
     // var coin = getCoin();
