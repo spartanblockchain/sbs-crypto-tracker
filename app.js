@@ -19,7 +19,8 @@ mongoose.connect(process.env.DB_CONNECTION,
 })
 
 app.post('/bitcoin-history', (req, res) => {
-    coinGeckoAPI.getBitcoinHist(req, res);
+    // coinGeckoAPI.getBitcoinHist(req, res);
+    coinGeckoAPI.getBitcoinHist(req, res, '2020-04-05');
     res.sendStatus(200);
   });
 
