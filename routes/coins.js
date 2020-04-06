@@ -14,8 +14,14 @@ router.get('/coin-info', (req, res) => {
 router.post('/', (req, res) =>{
     console.log(req.body)
     const post = new Post({
-        title: req.body.title,
-        description: req.body.description
+        name: 'bitcoin',
+        ticker: 'bitcoin',
+        close : 4231412,
+        volume : 2143, 
+        market_cap : 15235, 
+        max : 42314123, 
+        min : 341234, 
+        date : 01/21/1999
     })
 
     post.save()
