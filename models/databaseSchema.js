@@ -8,8 +8,8 @@ const CoinSchema = mongoose.Schema({
         required: true
     },
     ticker: {
-        type: String,
-        required: true
+        type: Number,
+        required: false
     },
     close: {
         type: Number,

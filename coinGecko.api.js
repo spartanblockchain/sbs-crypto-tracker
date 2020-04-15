@@ -1,5 +1,8 @@
+const express = require('express');
 const request = require('request');
 const moment = require('moment');
+const bodyParser = require('body-parser');
+const Post = require('./models/databaseSchema');
 
 // 'coinGecko' is our JSON object that will only contain a bunch of a functions
 // it gets exported at the bottom of this file and we can import in other files to access these request/calls
@@ -13,8 +16,12 @@ const coinGecko = {
       }
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
-      // console.log('body:', body); // Print the HTML for the Google homepage.
-    });
+      //console.log(bodyParser.json(body));
+//      console.log(JSON.parse(body));
+      const parsed = JSON.parse(body);   
+      return parsed;
+      
+      });
   },
 
   getBitcoinHist: (req, res, date) => {
