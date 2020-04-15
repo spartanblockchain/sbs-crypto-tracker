@@ -4,17 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon -r esm app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vx/gradient": "0.0.195",
+    "@vx/responsive": "0.0.195",
     "body-parser": "^1.19.0",
-    "cron": "^1.8.2",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongoose": "^5.9.6",
     "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "cron": "^1.8.2"
   }
 }
