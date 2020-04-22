@@ -32,7 +32,7 @@ router.post('/', (req, res) =>{
           });
     });
 });
-
+ 
 
 // need to do get request at 'coins/get_last30'
 // Gets you the last 30 entries into the database 
@@ -49,7 +49,7 @@ router.get('/get_last30', (req, res) => {
         // for (i = 0; i < result.length ; i ++){
         //     console.log('%s %s %s %s %s', result[i].name, result[i].ticker, result[i].close, result[i].volume, result[i].max);
         // }
-    })
+    }) 
     
     res.sendStatus(200)
 })
