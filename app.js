@@ -3,7 +3,6 @@ const mongoose      = require("mongoose");
 const app           = express();
 const bodyParser    = require('body-parser');
 const coinGeckoAPI  = require('./coinGecko.api');
-// const Chart         = require('./bitcoin');
 require('dotenv/config');
 
 //Import routes 
@@ -24,8 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/bitcoin-history', (req, res) => {
-    // coinGeckoAPI.getBitcoinHist(req, res);
-    coinGeckoAPI.getBitcoinHist(req, res, '2020-04-05');
+    coinGeckoAPI.getBitcoinHist('2020-04-05');
     res.sendStatus(200);
   });
 
@@ -35,9 +33,7 @@ app.listen(port, () => {
   });
 
 
-let http  = require('http');
 let fs    = require('fs');
-  
 let handleRequest = (request, response) => {
     response.writeHead(200, {
         'Content-Type': 'text/html'
@@ -45,10 +41,12 @@ let handleRequest = (request, response) => {
     fs.readFile('./html/index.html', null, function (error, data) {
         if (error) {
             response.writeHead(404);
-            respone.write('Whoops! File not found!');
+            response.write('Whoops! File not found!');
         } else {
             response.write(data);
         }
         response.end();
     });
+  
+  
 };

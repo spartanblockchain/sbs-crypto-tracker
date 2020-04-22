@@ -7,7 +7,7 @@ const Post = require('./models/databaseSchema');
 // 'coinGecko' is our JSON object that will only contain a bunch of a functions
 // it gets exported at the bottom of this file and we can import in other files to access these request/calls
 const coinGecko = {
-  getCurrentBitcoinStats: (req, res) => {
+  getCurrentBitcoinStats: () => {
     // var coin = getCoin();
     var coin = 'bitcoin'
     request("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+coin+"&order=market_cap_desc&per_page=100&page=1&sparkline=false", function (error, response, body) {
@@ -33,7 +33,7 @@ const coinGecko = {
         console.error('error:', error); // Print the error if one occurred
       }
       // console.log("start:",start_date, "end:",end_date);
-      console.log(body);
+      // console.log(body);
     })
   }
 
