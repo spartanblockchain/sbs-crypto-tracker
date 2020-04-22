@@ -32,10 +32,26 @@ const coinGecko = {
       if(error){
         console.error('error:', error); // Print the error if one occurred
       }
+      return body;
+      // console.log("start:",start_date, "end:",end_date);
+      // console.log(body);
+    })
+  },
+
+  getEthHist: (req, res, date) => {
+    // This will only return the prices/market_cap of each day from 2020-01-01 through 2020-04-05
+    var start_date = moment().unix(1577836800);   // 2020-01-01
+    var end_date = moment(date).format('X');          // gets current date
+    request("https://api.coingecko.com/api/v3/coins/ethereum/market_chart/range?vs_currency=usd&from=1577836800&to=1586044800", function(error, response, body) {
+      if(error){
+        console.error('error:', error); // Print the error if one occurred
+      }
+      return body;
       // console.log("start:",start_date, "end:",end_date);
       // console.log(body);
     })
   }
+
 
 }
 

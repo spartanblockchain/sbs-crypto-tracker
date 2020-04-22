@@ -3,6 +3,7 @@ const mongoose      = require("mongoose");
 const app           = express();
 const bodyParser    = require('body-parser');
 const coinGeckoAPI  = require('./coinGecko.api');
+const request       = require('request');
 require('dotenv/config');
 
 //Import routes 
@@ -22,10 +23,27 @@ app.get('/', (req, res) => {
   handleRequest(req, res);
 });
 
+// bitcoin api endpoint
 app.post('/bitcoin-history', (req, res) => {
     coinGeckoAPI.getBitcoinHist('2020-04-05');
     res.sendStatus(200);
   });
+
+// ethereum api endpoint
+app.post('/ethereum-history', (req, res) => {
+    coinGeckoAPI.getEthHist('2020-04-05');
+    res.sendStatus(200);
+});
+
+app.get('/bitcoin-price', (req, res) => {
+    request("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd", function(err, res, body) {
+        if(error){
+            console.error('error:', error); // Print the error if one occurred
+        } else {
+            res.send(body);
+        }
+    })
+});
 
 port = 8000;
 app.listen(port, () => {
